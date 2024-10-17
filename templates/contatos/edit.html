@@ -1,0 +1,16 @@
+<!-- /templates/contatos/edit.html -->
+{% extends 'base.html' %}
+
+{% block title %}Editar Contato{% endblock %}
+
+{% block content %}
+<h1>Editar Contato</h1>
+<form action="{{ url_for('edit', id=contato[0]) }}" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{ contato[1] }}" required><br><br>  <!-- Nome -->
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" value="{{ contato[2] }}" required><br><br>  <!-- Telefone -->
+    <input type="submit" value="Salvar">
+</form>
+<a href="{{ url_for('index') }}">Voltar</a>
+{% endblock %}

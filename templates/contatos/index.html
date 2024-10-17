@@ -1,0 +1,29 @@
+<!-- /templates/contatos/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Contatos{% endblock %}
+
+{% block content %}
+<h1>Agenda de Contatos</h1>
+<a href="{{ url_for('add') }}">Adicionar Contato</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+    {% for contato in contatos %}
+    <tr>
+        <td>{{ contato[0] }}</td>  <!-- ID -->
+        <td>{{ contato[1] }}</td>  <!-- Nome -->
+        <td>{{ contato[2] }}</td>  <!-- Telefone -->
+        <td>
+            <a href="{{ url_for('edit', id=contato[0]) }}">Editar</a>
+            <a href="{{ url_for('delete', id=contato[0]) }}" onclick="return confirm('Tem certeza?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('home') }}">Voltar para Home</a>
+{% endblock %}
