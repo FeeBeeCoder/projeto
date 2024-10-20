@@ -1,16 +1,40 @@
 <!-- /templates/contatos/edit.html -->
+
 {% extends 'base.html' %}
+<!-- Este template herda o layout da página 'base.html', reutilizando a estrutura básica. -->
 
 {% block title %}Editar Contato{% endblock %}
+<!-- Define o título da página como 'Editar Contato', que será exibido na aba do navegador. -->
 
 {% block content %}
+<!-- Este bloco 'content' é onde o conteúdo específico da página de edição de contato será inserido. -->
+
 <h1>Editar Contato</h1>
+<!-- Título da página para informar ao usuário que esta é a seção para editar um contato existente. -->
+
 <form action="{{ url_for('edit', id=contato[0]) }}" method="POST">
+    <!-- O formulário HTML para edição do contato. O 'action' define para qual URL (ou rota) o formulário será enviado. 
+         A função 'url_for' está sendo usada para gerar a URL da rota 'edit' com o ID do contato a ser editado (acessado como 'contato[0]'). O método de envio é POST, pois estamos enviando dados ao servidor para atualizar o contato. -->
+
     <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" value="{{ contato[1] }}" required><br><br>  <!-- Nome -->
+    <!-- Rótulo para o campo de edição do nome. -->
+
+    <input type="text" id="nome" name="nome" value="{{ contato[1] }}" required><br><br>
+    <!-- Campo de texto para editar o nome do contato. O valor atual do nome é pré-preenchido com o valor de 'contato[1]', que vem do backend. O atributo 'required' garante que o campo não pode ficar vazio. -->
+
     <label for="telefone">Telefone:</label>
-    <input type="text" id="telefone" name="telefone" value="{{ contato[2] }}" required><br><br>  <!-- Telefone -->
+    <!-- Rótulo para o campo de edição do telefone. -->
+
+    <input type="text" id="telefone" name="telefone" value="{{ contato[2] }}" required><br><br>
+    <!-- Campo de texto para editar o telefone do contato. O valor atual do telefone é pré-preenchido com o valor de 'contato[2]'. Assim como o campo de nome, ele também é obrigatório. -->
+
     <input type="submit" value="Salvar">
+    <!-- Botão de envio do formulário. Quando clicado, ele envia os dados atualizados para o servidor, que irá processar a edição do contato. -->
+
 </form>
+
 <a href="{{ url_for('index') }}">Voltar</a>
+<!-- Um link para voltar à página inicial (ou lista de contatos), gerado pela função 'url_for', que aponta para a rota 'index'. -->
+
 {% endblock %}
+<!-- Fim do bloco 'content'. O conteúdo inserido aqui substitui a parte correspondente do layout base. -->

@@ -1,29 +1,54 @@
 <!-- /templates/contatos/index.html -->
+
 {% extends 'base.html' %}
+<!-- Este template herda o layout da página 'base.html', reutilizando a estrutura básica da aplicação. -->
 
 {% block title %}Contatos{% endblock %}
+<!-- Define o título da página como 'Contatos', que será exibido na aba do navegador. -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo específico para a página de listagem de contatos. Este bloco será inserido no layout base. -->
+
 <h1>Agenda de Contatos</h1>
+<!-- Título principal da página, informando que esta é a agenda de contatos. -->
+
 <a href="{{ url_for('add') }}">Adicionar Contato</a>
+<!-- Um link que leva à página de adição de novo contato. O link é gerado pela função 'url_for', que aponta para a rota 'add'. -->
+
 <table border="1">
+    <!-- Início da tabela onde os contatos serão listados. A opção 'border="1"' adiciona uma borda simples à tabela. -->
+    
     <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>Telefone</th>
         <th>Ações</th>
     </tr>
+    <!-- Cabeçalho da tabela com quatro colunas: ID, Nome, Telefone, e Ações (como editar ou excluir). -->
+
     {% for contato in contatos %}
+    <!-- Início de um loop 'for' que itera sobre todos os contatos passados pelo backend. Para cada contato, será criada uma nova linha na tabela. -->
+
     <tr>
-        <td>{{ contato[0] }}</td>  <!-- ID -->
-        <td>{{ contato[1] }}</td>  <!-- Nome -->
-        <td>{{ contato[2] }}</td>  <!-- Telefone -->
+        <td>{{ contato[0] }}</td>  <!-- Exibe o ID do contato, que está no índice 0 do objeto 'contato'. -->
+        <td>{{ contato[1] }}</td>  <!-- Exibe o nome do contato, que está no índice 1 do objeto 'contato'. -->
+        <td>{{ contato[2] }}</td>  <!-- Exibe o telefone do contato, que está no índice 2 do objeto 'contato'. -->
         <td>
+            <!-- Coluna de Ações com links para editar ou excluir o contato. -->
             <a href="{{ url_for('edit', id=contato[0]) }}">Editar</a>
+            <!-- Link que leva à página de edição do contato. O ID do contato é passado na URL usando 'url_for'. -->
+            
             <a href="{{ url_for('delete', id=contato[0]) }}" onclick="return confirm('Tem certeza?')">Excluir</a>
+            <!-- Link para excluir o contato. O ID do contato é passado na URL. O 'onclick' usa JavaScript para confirmar com o usuário se ele realmente quer excluir o contato antes de enviar a requisição. -->
         </td>
     </tr>
+
     {% endfor %}
+    <!-- Fim do loop 'for'. Uma nova linha é gerada para cada contato da lista. -->
 </table>
+
 <a href="{{ url_for('home') }}">Voltar para Home</a>
+<!-- Link para voltar à página inicial. A função 'url_for' gera a URL para a rota 'home'. -->
+
 {% endblock %}
+<!-- Fim do bloco de conteúdo. O conteúdo dentro deste bloco será inserido no layout base. -->

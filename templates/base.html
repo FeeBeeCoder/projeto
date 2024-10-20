@@ -1,16 +1,28 @@
 <!-- /templates/base.html -->
+
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML. Isso informa ao navegador que o documento é uma página HTML5. -->
+
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
+    <!-- O título da página será definido nos templates filhos. O bloco 'title' é sobrescrito em cada página individual que herda este layout. -->
 </head>
 <body>
     <nav>
+        <!-- Seção de navegação da página. Aqui é onde são inseridos os links de navegação entre as diferentes páginas da aplicação. -->
+
         <a href="{{ url_for('home') }}">Home</a>
+        <!-- Link para a página inicial (Home). O 'url_for' gera a URL correspondente à rota 'home'. -->
+
         <a href="{{ url_for('index') }}">Contatos</a>
+        <!-- Link para a página de listagem de contatos. A função 'url_for' gera a URL para a rota 'index', que exibe todos os contatos. -->
     </nav>
+
     <div>
         {% block content %}{% endblock %}
+        <!-- Este bloco 'content' será substituído pelo conteúdo específico de cada página que herda este layout. 
+             Por exemplo, o conteúdo da página de contatos ou da página de adicionar/editar contato será inserido aqui. -->
     </div>
 </body>
 </html>

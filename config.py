@@ -1,8 +1,8 @@
 # config.py
 
 DB_CONFIG = {
-    'MYSQL_HOST': 'BD-ACD',
-    'MYSQL_USER': 'BD070324148',
-    'MYSQL_PASSWORD': 'Bvgvv1',
-    'MYSQL_DB': 'BD070324148'
+    'MYSQL_HOST': 'localhost',
+    'MYSQL_USER': 'root',
+    'MYSQL_PASSWORD': 'ECU73!#V',
+    'MYSQL_DB': 'root'
 }

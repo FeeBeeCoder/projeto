@@ -1,16 +1,49 @@
 <!-- /templates/contatos/add.html -->
+
 {% extends 'base.html' %}
+<!-- Esta linha define que este template herda o layout principal da página, que está no arquivo 'base.html'. 
+ Isso significa que a estrutura básica da página será reutilizada. -->
 
 {% block title %}Adicionar Contato{% endblock %}
+<!-- Este bloco define o título da página, que será exibido na aba do navegador. 
+ O conteúdo do título aqui é 'Adicionar Contato'. -->
 
 {% block content %}
+<!-- Este bloco 'content' é o local onde o conteúdo específico desta página será inserido, 
+ substituindo o conteúdo padrão do layout base. -->
+
 <h1>Adicionar Contato</h1>
+<!-- Um título para a página, informando ao usuário que esta é a seção para adicionar um novo contato. -->
+
 <form action="{{ url_for('add') }}" method="POST">
+    <!-- Aqui é o início de um formulário HTML. O 'action' define para qual rota ou URL os dados serão enviados 
+     quando o formulário for enviado. Neste caso, ele será enviado para a rota 'add', 
+     definida pelo backend usando a função 'url_for'. O método é 'POST', que é usado para enviar dados ao servidor. -->
+
     <label for="nome">Nome:</label>
+    <!-- Label que identifica o campo para o nome do contato. -->
+    
     <input type="text" id="nome" name="nome" required><br><br>
+    <!-- Campo de texto onde o usuário irá inserir o nome do contato. 
+     O 'id' é utilizado para associar a label a este campo e o 'name' é o nome que será enviado no formulário. 
+     O atributo 'required' garante que o campo não pode ser deixado vazio. -->
+    
     <label for="telefone">Telefone:</label>
+    <!-- Label que identifica o campo para o telefone do contato. -->
+    
     <input type="text" id="telefone" name="telefone" required><br><br>
+    <!-- Campo de texto para inserir o número de telefone. Assim como o campo de nome, 
+     este também é obrigatório. -->
+    
     <input type="submit" value="Salvar">
+    <!-- Botão que envia o formulário para o servidor. Quando clicado, 
+     os dados são enviados para a rota especificada no 'action'. -->
 </form>
+
 <a href="{{ url_for('index') }}">Voltar</a>
+<!-- Um link que leva o usuário de volta para a página inicial (ou lista de contatos, 
+ dependendo de como a rota 'index' é configurada). Usa a função 'url_for' para gerar a URL corretamente. -->
+
 {% endblock %}
+<!-- Fim do bloco 'content'. Tudo que está entre as tags 'block content' 
+ será inserido na parte correspondente do layout base. -->
