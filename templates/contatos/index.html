@@ -7,13 +7,15 @@
 <!-- Define o título da página como 'Contatos', que será exibido na aba do navegador. -->
 
 {% block content %}
-<!-- Início do bloco de conteúdo específico para a página de listagem de contatos. Este bloco será inserido no layout base. -->
+<!-- Início do bloco de conteúdo específico para a página de listagem de contatos. 
+ Este bloco será inserido no layout base. -->
 
 <h1>Agenda de Contatos</h1>
 <!-- Título principal da página, informando que esta é a agenda de contatos. -->
 
 <a href="{{ url_for('add') }}">Adicionar Contato</a>
-<!-- Um link que leva à página de adição de novo contato. O link é gerado pela função 'url_for', que aponta para a rota 'add'. -->
+<!-- Um link que leva à página de adição de novo contato. O link é gerado pela função 'url_for', 
+ que aponta para a rota 'add'. -->
 
 <table border="1">
     <!-- Início da tabela onde os contatos serão listados. A opção 'border="1"' adiciona uma borda simples à tabela. -->
@@ -27,7 +29,8 @@
     <!-- Cabeçalho da tabela com quatro colunas: ID, Nome, Telefone, e Ações (como editar ou excluir). -->
 
     {% for contato in contatos %}
-    <!-- Início de um loop 'for' que itera sobre todos os contatos passados pelo backend. Para cada contato, será criada uma nova linha na tabela. -->
+    <!-- Início de um loop 'for' que itera sobre todos os contatos passados pelo backend. 
+     Para cada contato, será criada uma nova linha na tabela. -->
 
     <tr>
         <td>{{ contato[0] }}</td>  <!-- Exibe o ID do contato, que está no índice 0 do objeto 'contato'. -->
