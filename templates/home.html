@@ -1,19 +1,12 @@
+<!-- /templates/home.html -->
 {% extends 'base.html' %}
-<!-- Este template herda o layout da página 'base.html', reutilizando a estrutura básica de navegação e cabeçalho. -->
 
 {% block title %}Home{% endblock %}
-<!-- Sobrescreve o bloco 'title' do layout base para definir o título da página como 'Home'.
- Esse título será exibido na aba do navegador. -->
 
 {% block content %}
-<!-- Sobrescreve o bloco 'content' definido no layout base para adicionar conteúdo específico à página inicial. -->
-
-<h1>Bem-vindo!</h1>
-<!-- Título principal da página de boas-vindas. -->
-
-<p>Este é um exemplo de um CRUD utilizado Flask e MySQL.</p>
-<!-- Descrição que informa ao usuário que esta é uma aplicação CRUD (Create, Read, Update, Delete) 
- construída utilizando Flask (backend) e MySQL (banco de dados). -->
-
+<section id="sobre">
+    <h2>Sobre nós</h2>
+    <p>Bem-vindo ao <strong>ConectaONG</strong>, a plataforma que conecta ONGs a voluntários e empresas dispostas a ajudar.</p>
+    <p>Nosso objetivo é facilitar o encontro entre quem precisa de ajuda e quem deseja ajudar, criando uma rede de solidariedade que transforma vidas.</p>
+</section>
 {% endblock %}
-<!-- Fim do bloco 'content'. O conteúdo definido aqui será inserido no local do bloco 'content' no layout base. -->

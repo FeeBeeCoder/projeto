@@ -1,31 +1,37 @@
 <!-- /templates/base.html -->
-
 <!DOCTYPE html>
-<!-- Declaração do tipo de documento HTML. Isso informa ao navegador que o documento é uma página HTML5. -->
-
-<html>
+<html lang="pt-br">
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <!-- O título da página será definido nos templates filhos. O bloco 'title' é sobrescrito em cada página 
-     individual que herda este layout. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ConectaONG - Um clique para salvar vidas">
+    <title>ConectaONG - {% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
-        <!-- Seção de navegação da página. Aqui é onde são inseridos os links de navegação entre as diferentes páginas 
-        da aplicação. -->
+    <header>
+        <h1><b>ConectaONG</b></h1>
+        <p><mark>Um clique para salvar vidas</mark></p>
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <!-- Link para a página inicial (Home). O 'url_for' gera a URL correspondente à rota 'home'. -->
-
-        <a href="{{ url_for('index') }}">Contatos</a>
-        <!-- Link para a página de listagem de contatos. A função 'url_for' gera a URL para a rota 'index', 
-         que exibe todos os contatos. -->
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Sobre</a></li>
+                <li><a href="{{ url_for('ongs') }}">ONGs</a></li>
+                <li><a href="{{ url_for('oportunidades') }}">Oportunidades</a></li>
+                <li><a href="{{ url_for('galeria') }}">Galeria</a></li>
+                <li><a href="{{ url_for('contato') }}">Contatos</a></li>
+                <li><a href="{{ url_for('cadastrar_ong') }}">Cadastrar ONG</a></li> <!-- Link para cadastro de ONGs -->
+                <li><a href="{{ url_for('login') }}">Login</a></li> <!-- Link para login de usuários -->
+            </ul>
+        </nav>
+    </header>
 
     <div>
         {% block content %}{% endblock %}
-        <!-- Este bloco 'content' será substituído pelo conteúdo específico de cada página que herda este layout. 
-    Por exemplo, o conteúdo da página de contatos ou da página de adicionar/editar contato será inserido aqui. -->
     </div>
+
+    <footer>
+        <p>Siga-nos nas redes sociais @ConectaONG</p>
+        <p>Endereço: Rua da Solidariedade, 123 - São Paulo, SP</p>
+    </footer>
 </body>
 </html>

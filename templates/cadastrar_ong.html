@@ -1,0 +1,20 @@
+<!-- /templates/cadastrar_ong.html -->
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar ONG{% endblock %}
+
+{% block content %}
+<h2>Cadastrar ONG</h2>
+<form>
+    <label for="nome">Nome da ONG:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao"></textarea><br><br>
+
+    <input type="submit" value="Cadastrar">
+</form>
+{% endblock %}
