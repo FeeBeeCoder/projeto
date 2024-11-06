@@ -1,8 +1,9 @@
 # app.py
-
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
 from config import DB_CONFIG
+
+
 # Importa as bibliotecas necessárias: Flask para criar a aplicação web, MySQL para conexão com o banco de dados,
 # e DB_CONFIG do arquivo de configuração.
 

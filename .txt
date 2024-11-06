@@ -1,0 +1,22 @@
+1 Analisar html das telas desenvolvidas 
+2 verificar referências 
+3 css
+4 baixar imagens 
+
+*endereço opcional 
+* Filtro de endereço 
+*notificação de ong próxima - benfeitoria  
+*Doador - registrar info de para quem doou 
+Tabela doação:
+id
+id pessoa
+id ong
+o que se propoem a doar (vinculado a ong)
+banco ong e banco voluntário
+
+
+
+banco - conexão - popular etc
+
+
+Aguardando bd 
