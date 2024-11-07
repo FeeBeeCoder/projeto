@@ -28,9 +28,9 @@ def contato():
     return render_template('contato.html')
 
 # Rota para a página de cadastro de ONGs
-@app.route('/cadastrar_ong')
-def cadastrar_ong():
-    return render_template('cadastrar_ong.html')
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
 
 # Rota para a página de login
 @app.route('/login')
