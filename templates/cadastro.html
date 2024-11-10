@@ -1,20 +1,125 @@
-<!-- /templates/cadastrar_ong.html -->
 {% extends 'base.html' %}
+<!-- Indica que este template herda a estrutura base definida em 'base.html'. -->
 
-{% block title %}Cadastrar ONG{% endblock %}
+{% block title %}Cadastro{% endblock %}
+<!-- Define o título da página como 'Cadastro', que será exibido na aba do navegador. -->
 
 {% block content %}
-<h2>Cadastrar ONG</h2>
-<form>
+<!-- Início do conteúdo específico desta página, que será inserido no layout base. -->
+
+<h2>Cadastro</h2>
+
+<!-- Botões para exibir os formulários -->
+<button onclick="mostrarFormulario('formONG')">Cadastrar ONG</button>
+<!-- Quando clicado, chama a função 'mostrarFormulario' e exibe o formulário de ONG. -->
+
+<button onclick="mostrarFormulario('formVoluntario')">Cadastrar Doador/Voluntário</button>
+<!-- Quando clicado, chama a função 'mostrarFormulario' e exibe o formulário de Doador/Voluntário. -->
+
+<!-- Formulário de ONG -->
+<form id="formONG" action="{{ url_for('cadastrar_ong') }}" method="POST" style="display: none;">
+    <!-- O formulário de ONG está inicialmente oculto ('display: none;'). -->
+    <h3>Cadastrar ONG</h3>
+    <!-- Título do formulário de ONG. -->
+
     <label for="nome">Nome da ONG:</label>
     <input type="text" id="nome" name="nome" required><br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="cnpj">CNPJ:</label>
+    <input type="text" id="cnpj" name="cnpj" required><br><br>
 
-    <label for="descricao">Descrição:</label>
-    <textarea id="descricao" name="descricao"></textarea><br><br>
+    <label for="causa">Causa:</label>
+    <input type="text" id="causa" name="causa" required><br><br>
 
-    <input type="submit" value="Cadastrar">
+    <label for="id_Necessidade">Tipo de Necessidade:</label>
+    <select id="id_Necessidade" name="id_Necessidade" required>
+        <option value="1">Voluntário</option>
+        <option value="2">Dinheiro</option>
+        <option value="3">Recursos</option>
+    </select><br><br>
+
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" required><br><br>
+
+    <label for="logradouro">Logradouro:</label>
+    <input type="text" id="logradouro" name="logradouro" required><br><br>
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required><br><br>
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento"><br><br>
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" required><br><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required><br><br>
+
+    <label for="senha_ONG">Senha:</label>
+    <input type="password" id="senha_ONG" name="senha_ONG" required><br><br>
+
+    <input type="submit" value="Cadastrar ONG">
+    <!-- Botão para submeter o formulário. -->
 </form>
+
+<!-- Formulário de Doador/Voluntário -->
+<form id="formVoluntario" action="{{ url_for('cadastrar_voluntario') }}" method="POST" style="display: none;">
+    <!-- Este formulário também está inicialmente oculto. -->
+
+    <h3>Cadastrar Doador/Voluntário</h3>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="tipo">Tipo:</label>
+    <select id="tipo" name="tipo" required>
+        <option value="voluntario">Voluntário</option>
+        <option value="empresa">Empresa</option>
+    </select><br><br>
+
+    <label for="cpf_cnpj">CPF/CNPJ:</label>
+    <input type="text" id="cpf_cnpj" name="cpf_cnpj" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone"><br><br>
+
+
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" required><br><br>
+
+    <label for="logradouro">Logradouro:</label>
+    <input type="text" id="logradouro" name="logradouro" required><br><br>
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required><br><br>
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento"><br><br>
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" required><br><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required><br><br>
+
+    <label for="senha_voluntario">Senha:</label>
+    <input type="password" id="senha_voluntario" name="senha_voluntario" required><br><br>
+
+    <input type="submit" value="Cadastrar Voluntário/Doador">
+</form>
+
+<script>
+    // Função para alternar a exibição dos formulários
+    function mostrarFormulario(formId) {
+        document.getElementById('formONG').style.display = 'none';
+        document.getElementById('formVoluntario').style.display = 'none';
+        document.getElementById(formId).style.display = 'block';
+    }
+</script>
+<!-- Esta função JavaScript exibe o formulário solicitado e oculta os outros. -->
+
 {% endblock %}
+<!-- Fim do bloco de conteúdo. -->
