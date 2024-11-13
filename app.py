@@ -75,13 +75,37 @@ def cadastrar_ong():
 
         return redirect(url_for('ongs'))
 
-    return render_template('cadastrar_ong.html')
+    return render_template('login.html')
 
 
-@app.route('/cadastrar_voluntario', methods=['POST'])
+@app.route('/cadastrar_voluntario', methods=['GET', 'POST'])
 def cadastrar_voluntario():
-    # Capturar os dados do formulário de voluntário e salvar no banco de dados
-    pass
+    if request.method == 'POST':
+        nome = request.form['nome']
+        tipo = request.form['tipo']
+        cpf_cnpj = request.form['cpf_cnpj']
+        email = request.form.get('email', '')
+        telefone = request.form.get('telefone', '')
+        cep = request.form['cep']
+        logradouro = request.form['logradouro']
+        numero = request.form['numero']
+        complemento = request.form.get('complemento', '')
+        estado = request.form['estado']
+        cidade = request.form['cidade']
+        senha_voluntario = request.form['senha_voluntario']
+
+        # Inserir no banco de dados
+        cur = mysql.connection.cursor()
+        cur.execute("""
+            INSERT INTO voluntario (nome, tipo, cpf_cnpj, email, telefone, cep, logradouro, numero, complemento, estado, cidade, senha_voluntario)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (nome, tipo, cpf_cnpj, email, telefone, cep, logradouro, numero, complemento, estado, cidade, senha_voluntario))
+        mysql.connection.commit()
+        cur.close()
+
+        return redirect(url_for('cadastrar_voluntario'))
+
+    return render_template('login.html')
 
 
 if __name__ == '__main__':

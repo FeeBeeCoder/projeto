@@ -11,6 +11,6 @@ database_password = os.getenv("DATABASE_PASSWORD")
 DB_CONFIG = {
     'MYSQL_HOST': '127.0.0.1',
     'MYSQL_USER': 'root',
-    'MYSQL_PASSWORD': 'ECU73!#V',
+    'MYSQL_PASSWORD': database_password,
     'MYSQL_DB': 'projetopi'
 }
