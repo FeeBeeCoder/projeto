@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}ONGs{% endblock %}
+
+{% block content %}
+<section id="ongs">
+    <h2>Lista de ONGs</h2>
+    <p>Descubra ONGs cadastradas e suas causas.</p>
+    <div class="ong-list">
+        {% for ong in ongs %}
+        <div class="ong-card">
+            <figure>
+                <img src="{{ url_for('static', filename=ong[5] or '') }}" alt="Logo da ONG {{ ong[1] }}" class="ong-logo">
+            </figure>
+            <h3>{{ ong[1] }}</h3>
+            <p><strong>Causa:</strong> {{ ong[2] }}</p>
+            <p><strong>Localização:</strong> {{ ong[3] }}, {{ ong[4] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<style>
+    .ong-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+    .ong-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        text-align: center;
+    }
+    .ong-logo {
+    width: 150px; /* Largura padrão */
+    height: 150px; /* Altura padrão */
+    object-fit: cover; /* Preenche o espaço sem distorcer */
+    border-radius: 50%; /* Deixa as imagens em formato circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra para destaque */
+    margin: 0 auto;
+    display: block;
+}
+
+    .ong-card h3 {
+        color: #004b4e;
+        margin-bottom: 0.5rem;
+    }
+    .ong-card p {
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+</style>
+{% endblock %}
