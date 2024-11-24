@@ -11,6 +11,15 @@ app.config['MYSQL_USER'] = DB_CONFIG['MYSQL_USER']
 app.config['MYSQL_PASSWORD'] = DB_CONFIG['MYSQL_PASSWORD']
 app.config['MYSQL_DB'] = DB_CONFIG['MYSQL_DB']
 
+# Configuração para uploads
+UPLOAD_FOLDER = 'static/uploads'  # Diretório onde as imagens serão armazenadas
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}  # Tipos de arquivo permitidos
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Função para verificar se o arquivo tem extensão permitida
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 # Inicializa a conexão MySQL com a aplicação Flask
 mysql = MySQL(app)
 
@@ -22,7 +31,11 @@ def home():
 # Rota para a página de ONGs
 @app.route('/ongs')
 def ongs():
-    return render_template('ongs.html')
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT id_ONG, nome, cnpj, causa, cidade, estado, logo FROM ong")
+    ongs = cur.fetchall()
+    cur.close()
+    return render_template('ongs.html', ongs=ongs)
 
 # Rota para a página de oportunidades
 @app.route('/oportunidades')
@@ -64,6 +77,14 @@ def cadastrar_ong():
         cidade = request.form['cidade']
         senha_ONG = request.form['senha_ONG']
 
+        # Gerenciar upload do arquivo
+        logo = request.files['logo']  # Campo 'logo' vindo do formulário
+        logo_path = ''
+        if logo and allowed_file(logo.filename):
+            filename = secure_filename(logo.filename)
+            logo_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            logo.save(logo_path)
+
         # Inserir no banco de dados
         cur = mysql.connection.cursor()
         cur.execute("""
@@ -76,6 +97,32 @@ def cadastrar_ong():
         return redirect(url_for('ongs'))
 
     return render_template('login.html')
+
+@app.route('/atualizar_logo', methods=['POST'])
+def atualizar_logo():
+    if request.method == 'POST':
+        id_ONG = request.form['id_ONG']
+        logo = request.files['logo']
+
+        # Verifica se o arquivo enviado é válido
+        if logo and allowed_file(logo.filename):
+            filename = secure_filename(logo.filename)
+            logo_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            logo.save(logo_path)
+
+            # Atualiza o caminho da logo no banco de dados
+            cur = mysql.connection.cursor()
+            cur.execute("""
+                UPDATE ong
+                SET logo = %s
+                WHERE id_ONG = %s
+            """, (logo_path, id_ONG))
+            mysql.connection.commit()
+            cur.close()
+
+            return redirect(url_for('ongs'))  # Redireciona para a página de ONGs
+        else:
+            return "Arquivo inválido. Por favor, envie uma imagem no formato permitido (png, jpg, jpeg, gif)."
 
 
 @app.route('/cadastrar_voluntario', methods=['GET', 'POST'])

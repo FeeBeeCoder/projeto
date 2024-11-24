@@ -1,0 +1,164 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    margin: 0;
+
+/* Estilo do cabeçalho */
+header {
+    background: linear-gradient(135deg, #004b4e, #007575);
+    background: url('https://patapila.org/_next/image?url=%2Fimg%2F9-portada-voluntario-ONG.webp&w=3840&q=75') no-repeat center center/cover;
+    color: black;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p mark {
+    background-color: #ffce00;
+    color: #004b4e;
+    padding: 0.3rem 0.7rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Navegação */
+nav {
+    background-color: #007575;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ffce00;
+    color: #004b4e;
+}
+.cta-button-login {
+    padding: 10px 20px;
+    background: #531dbdbe;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.cta-button-cadastro:hover {
+    background: #3a1abb73;
+}
+
+/* Estilo das seções */
+section {
+    padding: 4rem 10%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    color: #004b4e;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #ffce00;
+    padding-bottom: 0.3rem;
+    display: inline-block;
+}
+
+section p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+figure {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+figure img:hover {
+    transform: scale(1.05);
+}
+
+figure figcaption {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #004b4e;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    section {
+        padding: 2rem 5%;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p mark {
+        padding: 0.2rem 0.5rem;
+    }
+}

@@ -1,7 +1,4 @@
  
-2 verificar referências 
-3 css
-4 baixar imagens 
 
 *endereço opcional 
 * Filtro de endereço 
@@ -30,3 +27,7 @@ Perfil:
 ong - atualizar dados 
 voluntario - atualizar dados
 
+perfil - rout
+css 
+
+video home 
