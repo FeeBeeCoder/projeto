@@ -1,33 +1,19 @@
- 
+LISTA DE PENDÊNCIAS (26/11)
 
-*endereço opcional 
-* Filtro de endereço 
+- Header/Logo 
+- Verificar bd (adicionar causa animal e pesquisar qual outra poderia ser considerada)
+- Verificar se formulários de cadastro de Ongs/voluntário contemplam todas colunas do banco 
+- Verificar se html.ongs atualiza automaticamente ao uma ong se cadastrar (e incluir contato nas Ongs)
+- Adicionar avaliações nas ongs
+- Tela Perfil
+- Tela Galeria 
+- Especificação de necessidade ? 
+- Botão de compartilhar necessidade nas redes sociais 
+- Comentários ? 
+- Esqueci minha senha 
+
+EXTRA (Não obrigatório)
+
 *notificação de ong próxima - benfeitoria  
 *Doador - registrar info de para quem doou 
-
-
-
-
-banco - conexão - popular etc
-
-
-1- Formulário de cadastro - ong (adicionar campos conforme bd)
-2- Formulário cadastro de doador 
-3 - Tela Oportunidas: adicionar listagem (vinculo com bd) - flask
-3 - Analisar html das telas desenvolvidas - adicionar mais texto, informar próposito e etc, e imagens
-4 - 
-
-
-cadastro - caminho 
-login - perfil 
-ong
-oportunidade
-
-Perfil:
-ong - atualizar dados 
-voluntario - atualizar dados
-
-perfil - rout
-css 
-
-video home 
+* Video - sobre 

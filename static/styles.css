@@ -14,8 +14,8 @@ body {
 
 /* Estilo do cabeçalho */
 header {
-    background: linear-gradient(135deg, #004b4e, #007575);
-    background: url('https://patapila.org/_next/image?url=%2Fimg%2F9-portada-voluntario-ONG.webp&w=3840&q=75') no-repeat center center/cover;
+    background: linear-gradient(135deg, #004b4e, hsl(180, 100%, 23%));
+    /* background: url('https://patapila.org/_next/image?url=%2Fimg%2F9-portada-voluntario-ONG.webp&w=3840&q=75') no-repeat center center/cover; */
     color: black;
     padding: 3rem 2rem;
     text-align: center;
@@ -161,4 +161,19 @@ footer p:last-of-type {
     header p mark {
         padding: 0.2rem 0.5rem;
     }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
 }

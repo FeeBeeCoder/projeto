@@ -17,25 +17,32 @@
 
 <!-- Botões para exibir os formulários -->
 <button onclick="mostrarFormulario('formONG')">Cadastrar ONG</button>
-<!-- Quando clicado, chama a função 'mostrarFormulario' e exibe o formulário de ONG. -->
-
 <button onclick="mostrarFormulario('formVoluntario')">Cadastrar Doador/Voluntário</button>
-<!-- Quando clicado, chama a função 'mostrarFormulario' e exibe o formulário de Doador/Voluntário. -->
 
 <!-- Formulário de ONG -->
 <form id="formONG" action="{{ url_for('cadastrar_ong') }}" method="POST" style="display: none;">
-    <!-- O formulário de ONG está inicialmente oculto ('display: none;'). -->
     <h3>Cadastrar ONG</h3>
-    <!-- Título do formulário de ONG. -->
 
     <label for="nome">Nome da ONG:</label>
     <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required placeholder="Digite o e-mail da ONG"><br><br>
 
     <label for="cnpj">CNPJ:</label>
     <input type="text" id="cnpj" name="cnpj" required><br><br>
 
     <label for="causa">Causa:</label>
-    <input type="text" id="causa" name="causa" required><br><br>
+<select id="causa" name="causa" required>
+    <option value="Educação">Educação</option>
+    <option value="Saúde">Saúde</option>
+    <option value="Meio Ambiente">Meio Ambiente</option>
+    <option value="Assistência Social">Assistência Social</option>
+    <option value="Direitos Humanos">Direitos Humanos</option>
+    <option value="Cultura">Cultura</option>
+    <option value="Esporte">Esporte</option>
+    <option value="Outro">Outra</option>
+</select><br><br>
 
     <label for="id_Necessidade">Tipo de Necessidade:</label>
     <select id="id_Necessidade" name="id_Necessidade" required>
@@ -95,11 +102,12 @@
     <input type="password" id="senha_ONG" name="senha_ONG" required><br><br>
 
     <input type="submit" value="Cadastrar ONG">
-    <!-- Botão para submeter o formulário. -->
 </form>
 
 <!-- Formulário de Doador/Voluntário -->
 <form id="formVoluntario" action="{{ url_for('cadastrar_voluntario') }}" method="POST" style="display: none;">
+    <!-- Este formulário também está inicialmente oculto. -->
+
     <h3>Cadastrar Doador/Voluntário</h3>
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required><br><br>
@@ -118,6 +126,7 @@
 
     <label for="telefone">Telefone:</label>
     <input type="text" id="telefone" name="telefone"><br><br>
+
 
     <label for="cep">CEP:</label>
     <input type="text" id="cep" name="cep" required><br><br>
@@ -180,7 +189,4 @@
         document.getElementById(formId).style.display = 'block';
     }
 </script>
-<!-- Esta função JavaScript exibe o formulário solicitado e oculta os outros. -->
-
 {% endblock %}
-<!-- Fim do bloco de conteúdo. -->
