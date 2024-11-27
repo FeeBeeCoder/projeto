@@ -11,6 +11,9 @@ LISTA DE PENDÊNCIAS (26/11)
 - Botão de compartilhar necessidade nas redes sociais 
 - Comentários ? 
 - Esqueci minha senha 
+- CSS demais telas 
+- Rota: de avaliar para avaliadas 
+-Upload logo ong - form cadastro 
 
 EXTRA (Não obrigatório)
 
