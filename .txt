@@ -2,7 +2,7 @@ LISTA DE PENDÊNCIAS (26/11)
 
 - Header/Logo 
 - Verificar bd (adicionar causa animal e pesquisar qual outra poderia ser considerada)
-- Verificar se formulários de cadastro de Ongs/voluntário contemplam todas colunas do banco 
+- Verificar se formulários de cadastro voluntário contemplam todas colunas do banco 
 - Verificar se html.ongs atualiza automaticamente ao uma ong se cadastrar (e incluir contato nas Ongs)
 - Adicionar avaliações nas ongs
 - Tela Perfil

@@ -1,4 +1,5 @@
 <!-- /templates/base.html -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,17 +11,19 @@
 </head>
 <body>
     <header>
-        <h1><b>ConectaONG</b></h1>
-        <p><strong>Um clique para salvar vidas</strong></p>
+        <div class="logo-container">
+            <h1 class="logo">ConectaONG</h1>
+            <p class="slogan">Um clique para salvar vidas</p>
+        </div>
 
         <nav>
             <ul>
                 <li><a href="{{ url_for('home') }}">Sobre</a></li>
                 <li><a href="{{ url_for('ongs') }}">ONGs</a></li>
-              <!--  <li><a href="{{ url_for('oportunidades') }}">Oportunidades</a></li> -->
+                  <!--  <li><a href="{{ url_for('oportunidades') }}">Oportunidades</a></li> -->
                 <li><a href="{{ url_for('galeria') }}">Galeria</a></li>
-                <li><a href="{{ url_for('cadastro') }}">Cadastro</a></li> <!-- Link para cadastro de ONGs -->
-                <li><a href="{{ url_for('login') }}">Login</a></li> <!-- Link para login de usuários -->
+                <li><a href="{{ url_for('cadastro') }}">Cadastro</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -35,3 +38,4 @@
     </footer>
 </body>
 </html>
+

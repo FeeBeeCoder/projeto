@@ -4,7 +4,7 @@
 
 {% block content %}
 <section id="ongs">
-    <h2>Lista de ONGs</h2>
+    <h2>ONGs Cadastradas</h2>
     <p>Descubra ONGs cadastradas e suas causas.</p>
 
     <!-- Formulário de Filtro -->
@@ -75,6 +75,9 @@
             <p><strong>Causa:</strong> {{ ong[2] }}</p>
             <p><strong>Necessidade:</strong> {{ ong[6] }}</p>
             <p><strong>Localização:</strong> {{ ong[3] }}, {{ ong[4] }}</p>
+            <p><strong>Telefone:</strong> {{ ong[7] }}</p> 
+            <p><strong>Celular:</strong> {{ ong[8] }}</p>
+
             <a href="{{ url_for('avaliar_ong', id_ong=ong[0]) }}">Avaliar ONG</a> |
             <a href="{{ url_for('avaliacoes', id_ong=ong[0]) }}">Ver Avaliações</a>
             <br>
