@@ -1,12 +1,197 @@
-<!-- /templates/home.html -->
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<section id="hero">
+    <div class="hero-content">
+        <h2>Bem-vindo(a) ao ConectaONG</h2>
+        <p>
+            No <strong>ConectaONG</strong>, transformamos solidariedade em ação! Conectamos ONGs, voluntários e empresas
+            para promover impacto positivo na sociedade. Junte-se a nós e faça a diferença!
+        </p>
+        <a href="{{ url_for('ongs') }}" class="btn-primary">Conheça as ONGs</a>
+        <a href="{{ url_for('cadastro') }}" class="btn-secondary">Cadastre-se Agora</a>
+    </div>
+</section>
+
 <section id="sobre">
-    <h2>Sobre nós</h2>
-    <p>Bem-vindo ao <strong>ConectaONG</strong>, a plataforma que conecta ONGs a voluntários e empresas dispostas a ajudar.</p>
-    <p>Nosso objetivo é facilitar o encontro entre quem precisa de ajuda e quem deseja ajudar, criando uma rede de solidariedade que transforma vidas.</p>
+    <h2>Sobre Nós</h2>
+    <p>
+        Somos uma plataforma dedicada a fortalecer o terceiro setor. Facilitamos a conexão entre ONGs que precisam de
+        suporte e pessoas ou organizações dispostas a ajudar. Nosso compromisso é criar uma rede colaborativa para
+        promover o bem-estar social.
+    </p>
+    <p>
+        Alinhados com a <strong>ODS 10</strong> (Reduzir as Desigualdades), trabalhamos para construir uma sociedade mais
+        justa, inclusiva e sustentável.
+    </p>
+</section>
+
+<section id="ods10">
+    <h2>Objetivo de Desenvolvimento Sustentável</h2>
+    <p>
+        A ODS 10 da ONU visa reduzir as desigualdades dentro dos países e entre eles. No ConectaONG, promovemos ações
+        que:
+    </p>
+    <ul>
+        <li>Garantem acesso igualitário a recursos essenciais.</li>
+        <li>Promovem a inclusão social e econômica de comunidades vulneráveis.</li>
+        <li>Fortalecem ONGs que atuam em prol da equidade.</li>
+    </ul>
+    
+</section>
+
+<section id="missao-visao-valores">
+    <h2>Missão, Visão e Valores</h2>
+    <div class="mvv-container">
+        <div class="mvv-card">
+            <h3>Missão</h3>
+            <p>
+                Facilitar conexões entre ONGs, voluntários e empresas para construir um futuro mais justo e sustentável.
+            </p>
+        </div>
+        <div class="mvv-card">
+            <h3>Visão</h3>
+            <p>
+                Ser a principal plataforma de impacto social no Brasil, transformando vidas e comunidades.
+            </p>
+        </div>
+        <div class="mvv-card">
+            <h3>Valores</h3>
+            <p>
+                Inclusão, transparência, colaboração e respeito pelos direitos humanos.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="participe">
+    <h2>Participe Agora</h2>
+    <p>
+        Queremos que você faça parte dessa jornada! Se você é uma ONG em busca de apoio, ou alguém disposto a transformar vidas como voluntário ou doador,
+        <strong>o ConectaONG é para você</strong>. 
+    </p>
+    <a href="{{ url_for('cadastro') }}" class="btn-primary">Cadastre-se Já</a>
 </section>
 {% endblock %}
+
+<style>
+    #hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #004b4e, #007575);
+        color: white;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #hero .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    #hero .btn-primary,
+    #hero .btn-secondary {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        font-weight: bold;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #hero .btn-primary {
+        background-color: #ffce00;
+        color: #004b4e;
+    }
+
+    #hero .btn-primary:hover {
+        background-color: #e6b800;
+    }
+
+    #hero .btn-secondary {
+        background-color: #007575;
+        color: white;
+        margin-left: 1rem;
+    }
+
+    #hero .btn-secondary:hover {
+        background-color: #005f5f;
+    }
+
+    #sobre,
+    #ods10,
+    #missao-visao-valores,
+    #participe {
+        padding: 4rem 10%;
+        background: white;
+        margin: 2rem auto;
+        max-width: 1200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    #sobre h2,
+    #ods10 h2,
+    #missao-visao-valores h2,
+    #participe h2 {
+        font-size: 2rem;
+        color: #004b4e;
+        margin-bottom: 1rem;
+    }
+
+    #sobre p,
+    #ods10 p,
+    #participe p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    #ods10 ul {
+        list-style-type: disc;
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+        text-align: left;
+    }
+
+    #ods10 ul li {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    .mvv-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .mvv-card {
+        flex: 1;
+        background: #f4f9f4;
+        padding: 1.5rem;
+        border-radius: 10px;
+        border: 2px solid #004b4e;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .mvv-card h3 {
+        font-size: 1.5rem;
+        color: #004b4e;
+        margin-bottom: 0.5rem;
+    }
+
+    .mvv-card p {
+        font-size: 1rem;
+        color: #555;
+    }
+</style>

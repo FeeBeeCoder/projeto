@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil da ONG</title>
+    <style>
+        /* Reset geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        }
+
+    /* Container principal */
+        .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* Títulos */
+     h1, h2 {
+        color: #4CAF50;
+        margin-bottom: 20px;
+}
+
+/*  Estilo para parágrafos */
+        p {
+        margin: 10px 0;
+     line-height: 1.6;
+}
+
+/*  Links e botões */
+        a {
+        text-decoration: none;
+        font-weight: bold;
+}
+
+        a.btn-primary {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+}
+
+        a.btn-primary:hover {
+        background-color: #45a049;
+}
+
+        a.button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #d9534f;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+}
+
+        a.button:hover {
+        background-color: #c9302c;
+}
+
+    /* Lista de avaliações */
+        ul {
+     list-style-type: none;
+     padding: 0;
+}
+
+        ul li {
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+        ul li hr {
+        margin: 10px 0;
+        border: 0;
+        border-top: 1px solid #ddd;
+}
+
+    /* Destaques */
+     strong {
+     color: #333;
+     font-weight: bold;
+}
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    a.btn-primary, a.button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h2>Editar Perfil da ONG</h2>
+
+    <form method="POST">
+        
+        <label for="nome">Nome da ONG:</label>
+        <input type="text" id="nome" name="nome" value="{{ usuario['nome'] }}" required><br><br>
+        <label for="nome">Email:</label>
+        <input type="text" id="email" name="email" value="{{ usuario['email'] }}" required><br><br>
+
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" value="{{ usuario['cnpj'] }}" required><br><br>
+
+        <label for="causa">Causa:</label>
+        <input type="text" id="causa" name="causa" value="{{ usuario['causa'] }}" required><br><br>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" value="{{ usuario['cep'] }}" required><br><br>
+
+        <label for="logradouro">Logradouro:</label>
+        <input type="text" id="logradouro" name="logradouro" value="{{ usuario['logradouro'] }}" required><br><br>
+
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" name="numero" value="{{ usuario['numero'] }}" required><br><br>
+
+        <label for="complemento">Complemento:</label>
+        <input type="text" id="complemento" name="complemento" value="{{ usuario['complemento'] }}"><br><br>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado" value="{{ usuario['estado'] }}" required><br><br>
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" value="{{ usuario['cidade'] }}" required><br><br>
+
+        <label for="senha_ONG">Senha:</label>
+        <input type="password" id="senha_ONG" name="senha_ONG" value="{{ usuario['senha_ONG'] }}" required><br><br>
+
+        <!-- Ações -->
+        <div class="profile-actions">
+            <button type="submit" class="button">Salvar Alterações</button>
+            <a href="{{ url_for('perfil_ong') }}" class="button">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

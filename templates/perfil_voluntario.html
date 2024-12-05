@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Voluntário</title>
+    <style>
+        /* Reset geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo do corpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #444;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cabeçalho do perfil */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .profile-header h2 {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+        }
+
+        /* Layout do perfil */
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo de cada item do perfil */
+        .profile-info div {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info div label {
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+
+        .profile-info div span {
+            margin-top: 8px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        /* Links e botões */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Botões */
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            .profile-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Estilo para o título "Histórico de Doações" */
+.donation-history h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Estilo para o conteúdo das doações */
+.donation-history ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.donation-history ul li {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.donation-history ul li strong {
+    color: #34495e;
+    font-size: 1.1rem;
+}
+
+.donation-history ul li span {
+    display: block;
+    margin-top: 8px;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Estilo para o caso de não haver doações */
+.donation-history .no-donations {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .donation-history h3 {
+        font-size: 1.6rem;
+    }
+
+    .donation-history ul li {
+        padding: 12px;
+    }
+
+    .donation-history ul li strong {
+        font-size: 1rem;
+    }
+
+    .donation-history ul li span {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-header">
+        <h1>Bem-vindo(a), {{ usuario['nome'] }}</h1>
+        <h2>{{ usuario['tipo'].capitalize() }}</h2>
+    </div>
+
+    <div class="profile-info">
+        <div>
+            <label>Email:</label>
+            <span>{{ usuario['email'] }}</span>
+        </div>
+        <div>
+            <label>Telefone:</label>
+            <span>{{ usuario['telefone'] }}</span>
+        </div>
+        <div>
+            <label>CPF/CNPJ:</label>
+            <span>{{ usuario['cpf_cnpj'] }}</span>
+        </div>
+        <div>
+            <label>Tipo:</label>
+            <span>{{ usuario['tipo'] }}</span>
+        </div>
+        <div>
+            <label>CEP:</label>
+            <span>{{ usuario['cep'] }}</span>
+        </div>
+        <div>
+            <label>Logradouro:</label>
+            <span>{{ usuario['logradouro'] }}</span>
+        </div>
+        <div>
+            <label>Número:</label>
+            <span>{{ usuario['numero'] }}</span>
+        </div>
+        <div>
+            <label>Complemento:</label>
+            <span>{{ usuario['complemento'] or 'Não informado' }}</span>
+        </div>
+        <div>
+            <label>Estado:</label>
+            <span>{{ usuario['estado'] }}</span>
+        </div>
+        <div>
+            <label>Cidade:</label>
+            <span>{{ usuario['cidade'] }}</span>
+        </div>
+        <h3>Histórico de Doações</h>
+        {% if doacoes %}
+            <ul>
+                {% for doacao in doacoes %}
+                    <li>
+                        <strong>ONG:</strong> {{ doacao.nome_ong }}<br>
+                        <strong>Necessidade:</strong> {{ doacao.necessidade }}<br>
+                        <strong>Descrição da Doação:</strong> {{ doacao.descricao_doaçao }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Você ainda não fez nenhuma doação.</p>
+        {% endif %}
+    </div>
+
+    <div class="profile-actions">
+        <a href="{{ url_for('editar_perfil') }}"class="button"> Editar Perfil</a>
+        <a href="{{ url_for('logout') }}" class="button">Sair</a>
+
+    </div>
+</div>
+
+</body>
+</html>

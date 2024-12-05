@@ -1,0 +1,18 @@
+{% block content %}
+<h2>Gerenciar ONGs</h2>
+
+<h3>Atualizar Logo da ONG</h3>
+<form action="{{ url_for('atualizar_logo') }}" method="POST" enctype="multipart/form-data">
+    <label for="id_ONG">Selecione a ONG:</label>
+    <select id="id_ONG" name="id_ONG" required>
+        {% for ong in ongs %}
+        <option value="{{ ong[0] }}">{{ ong[1] }}</option> <!-- ID e Nome da ONG -->
+        {% endfor %}
+    </select><br><br>
+
+    <label for="logo">Selecione a nova logo:</label>
+    <input type="file" id="logo" name="logo" accept="image/*"><br><br>
+
+    <input type="submit" value="Atualizar Logo">
+</form>
+{% endblock %}

@@ -1,12 +1,160 @@
-<!-- /templates/ongs.html -->
 {% extends 'base.html' %}
 
 {% block title %}ONGs{% endblock %}
 
 {% block content %}
 <section id="ongs">
-    <h2>ONGs Cadastradas</h2>
-    <p>Aqui você pode ver uma lista de todas as ONGs cadastradas em nossa plataforma.</p>
-    <!-- LISTA DE ONGS A SER IMPLEMENTADA COM FOTOS E EXPERIÊNCIAS-->
+    <h2>Lista de ONGs</h2>
+    <p>Descubra ONGs cadastradas e suas causas.</p>
+
+    <!-- Formulário de Filtro -->
+    <form method="GET" action="{{ url_for('ongs') }}" class="filter-form">
+        <label for="causa">Filtrar por Causa:</label>
+        <select id="causa" name="causa">
+            <option value="">Todas</option>
+            {% for causa in causas %}
+            <option value="{{ causa[0] }}" {% if request.args.get('causa') == causa[0] %}selected{% endif %}>
+                {{ causa[0] }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <label for="estado">Filtrar por Estado:</label>
+        <select id="estado" name="estado">
+            <option value="">Todos</option>
+            <option value="AC">Acre (AC)</option>
+            <option value="AL">Alagoas (AL)</option>
+            <option value="AP">Amapá (AP)</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MT">Mato Grosso (MT)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="RO">Rondônia (RO)</option>
+            <option value="RR">Roraima (RR)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+            <option value="SE">Sergipe (SE)</option>
+            <option value="TO">Tocantins (TO)</option>
+        </select>
+
+        <label for="necessidade">Filtrar por Necessidade:</label>
+        <select id="necessidade" name="necessidade">
+            <option value="">Todas</option>
+            {% for necessidade in necessidades %}
+            <option value="{{ necessidade[0] }}" {% if request.args.get('necessidade') == necessidade[0] %}selected{% endif %}>
+                {{ necessidade[0] }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <!-- Lista de ONGs -->
+    <div class="ong-list">
+        {% for ong in ongs %}
+        <div class="ong-card">
+            <figure>
+                <img src="{{ url_for('static', filename=ong[5] or '') }}" alt="Logo da ONG {{ ong[1] }}" class="ong-logo">
+            </figure>
+            <h3>{{ ong[1] }}</h3>
+            <p><strong>Causa:</strong> {{ ong[2] }}</p>
+            <p><strong>Necessidade:</strong> {{ ong[6] }}</p>
+            <p><strong>Localização:</strong> {{ ong[3] }}, {{ ong[4] }}</p>
+            <a href="{{ url_for('avaliar_ong', id_ong=ong[0]) }}">Avaliar ONG</a> |
+            <a href="{{ url_for('avaliacoes', id_ong=ong[0]) }}">Ver Avaliações</a>|
+            <a href="{{ url_for('doaçao', id_ong=ong[0]) }}">Faça sua doação</a>|
+
+|
+            <br>
+            <!-- Botão de Compartilhamento -->
+            <button onclick="compartilhar('{{ ong[1] }}', '{{ ong[2] }}', '{{ ong[6] }}')">Compartilhar Necessidade</button>
+        </div>
+        {% endfor %}
+    </div>
 </section>
+
+
+<style>
+    .filter-form {
+        margin-bottom: 1.5rem;
+    }
+
+    .ong-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+
+    .ong-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .ong-logo {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        display: block;
+    }
+
+    .ong-card h3 {
+        color: #004b4e;
+        margin-bottom: 0.5rem;
+    }
+
+    .ong-card p {
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+
+    .ong-card a {
+        text-decoration: none;
+        color: #007575;
+        font-weight: bold;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .ong-card a:hover {
+        color: #004b4e;
+    }
+
+    .ong-card button {
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #007575;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .ong-card button:hover {
+        background-color: #004b4e;
+    }
+</style>
 {% endblock %}

@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #004b4e, hsl(180, 100%, 23%));
+    color: #fff;
+    padding: 2rem 10%; /* Aumenta as bordas laterais */
+    border-bottom: 8px solid #ffce00;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-container {
+    text-align: left;
+}
+
+header .logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffce00;
+    margin-bottom: 0.3rem;
+}
+
+header .slogan {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 0.3rem;
+}
+
+/* Navegação */
+nav {
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem; /* Maior espaçamento entre itens */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ffce00;
+    color: #004b4e;
+}
+
+/* Estilo das seções */
+section {
+    padding: 4rem 10%; /* Aumenta as bordas laterais das seções */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    color: #004b4e;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #ffce00;
+    padding-bottom: 0.3rem;
+    display: inline-block;
+}
+
+section p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Rodapé */
+footer {
+    background-color: #004b4e;
+    color: #fff;
+    padding: 2rem 10%; /* Aumenta as bordas laterais do rodapé */
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem; /* Reduz bordas laterais em telas menores */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    header .logo {
+        font-size: 2rem;
+    }
+
+    header .slogan {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 2rem 5%; /* Reduz bordas laterais em seções */
+    }
+
+    footer {
+        padding: 2rem 5%; /* Reduz bordas laterais no rodapé */
+    }
+}

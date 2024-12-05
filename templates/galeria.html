@@ -1,4 +1,3 @@
-<!-- /templates/galeria.html -->
 {% extends 'base.html' %}
 
 {% block title %}Galeria{% endblock %}
@@ -8,5 +7,34 @@
     <h2>Galeria de Histórias</h2>
     <p>Confira fotos e histórias de sucesso de ONGs e voluntários que estão fazendo a diferença.</p>
     <!-- GALERIA DE FOTOS E HISTÓRIAS -->
+    <div class="fotos">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_qQfSikiDwu-mVxcm9a1gueCGVR7VYXEUA&s" alt="distribuição comida">
+        <img src="https://conteudo.imguol.com.br/c/entretenimento/d0/2018/04/17/voluntario-1523975102025_v2_1920x1280.jpg" alt="trabalho voluntário">
+        <img src="https://blog.gerandofalcoes.com/wp-content/uploads/2022/08/trabalho-voluntario.jpg" alt="educação">
+        <img src="https://corneliavlieg.org.br/wp-content/uploads/2020/11/Grupo-de-artesaos-Armazem-das-Oficinas-500x400.jpg" alt="artesanato">
+        <img src="https://institutoreacao.org.br/wp-content/uploads/2020/11/trabalho-voluntario.jpg" alt="ação social">
+        <img src="https://res.cloudinary.com/worldpackers/image/upload/c_limit,f_auto,q_auto,w_1140/v1/guides/section_image/ioid3imhmb9jlwnwdzlw" alt="voluntários">
+    </div>
+    <style>
+        .fotos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .fotos img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .fotos img:hover {
+            transform: scale(1.1); /* Aumenta levemente a imagem */
+            filter: brightness(1.2); /* Deixa a imagem mais brilhante */
+        }
+    </style>
 </section>
 {% endblock %}

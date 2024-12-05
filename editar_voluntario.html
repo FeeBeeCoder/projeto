@@ -1,0 +1,36 @@
+<form method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{ voluntario['nome'] }}" required>
+
+    <label for="tipo">Tipo:</label>
+    <select id="tipo" name="tipo">
+        <option value="voluntario" {% if voluntario.get('tipo') == 'voluntario' %}selected{% endif %}>Voluntário</option>
+        <option value="empresa" {% if voluntario.get('tipo') == 'empresa' %}selected{% endif %}>Empresa</option>
+        
+
+    <label for="cpf_cnpj">CPF/CNPJ:</label>
+    <input type="text" id="cpf_cnpj" name="cpf_cnpj" value="{{ voluntario['cpf_cnpj'] }}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="{{ voluntario['email'] }}">
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" value="{{ voluntario['telefone'] }}">
+
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" value="{{ voluntario['cep'] }}" required>
+
+    <label for="logradouro">Logradouro:</label>
+    <input type="text" id="logradouro" name="logradouro" value="{{ voluntario['logradouro'] }}" required>
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" value="{{ voluntario['numero'] }}" required>
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento" value="{{ voluntario['complemento'] }}">
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" value="{{ voluntario['estado'] }}" required>
+
+    <button type="submit">Salvar alterações</button>
+</form>

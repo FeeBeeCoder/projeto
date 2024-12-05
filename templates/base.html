@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ConectaONG - Um clique para salvar vidas">
     <title>ConectaONG - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro.css') }}">
+
 </head>
 <body>
     <header>
@@ -16,7 +19,7 @@
             <ul>
                 <li><a href="{{ url_for('home') }}">Sobre</a></li>
                 <li><a href="{{ url_for('ongs') }}">ONGs</a></li>
-                <li><a href="{{ url_for('oportunidades') }}">Oportunidades</a></li>
+              <!--  <li><a href="{{ url_for('oportunidades') }}">Oportunidades</a></li> -->
                 <li><a href="{{ url_for('galeria') }}">Galeria</a></li>
                 <li><a href="{{ url_for('cadastro') }}">Cadastro</a></li> <!-- Link para cadastro de ONGs -->
                 <li><a href="{{ url_for('login') }}">Login</a></li> <!-- Link para login de usuários -->
