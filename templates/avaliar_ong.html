@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% block content %}
 <h2>Avaliar {{ ong[0] }}</h2>
 <p>Deixe sua opinião e ajude outros voluntários a conhecerem mais sobre esta ONG.</p>
@@ -164,4 +165,99 @@ button[type="submit"]:hover {
         }
     });
 </script>
+=======
+{% extends 'base.html' %}
+
+{% block title %}Avaliar {{ ong[0] }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Avaliar {{ ong[0] }}</h2>
+    <p>Deixe sua opinião e ajude outros voluntários a conhecerem mais sobre esta ONG.</p>
+
+    <form action="{{ url_for('avaliar_ong', id_ong=request.view_args['id_ong']) }}" method="POST" class="evaluation-form">
+        <div class="form-group">
+            <label for="cpf_cnpj">CPF/CNPJ:</label>
+            <input type="text" id="cpf_cnpj" name="cpf_cnpj" class="form-control" required placeholder="Digite seu CPF ou CNPJ">
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" class="form-control" required placeholder="Digite sua senha">
+        </div>
+
+        <div class="form-group">
+            <label for="nota">Nota:</label>
+            <select id="nota" name="nota" class="form-control" required>
+                <option value="" disabled selected>Escolha uma nota</option>
+                <option value="1">1 - Ruim</option>
+                <option value="2">2 - Regular</option>
+                <option value="3">3 - Bom</option>
+                <option value="4">4 - Muito Bom</option>
+                <option value="5">5 - Excelente</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="comentario">Comentário:</label>
+            <textarea id="comentario" name="comentario" class="form-control" rows="4" required placeholder="Deixe seu comentário"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning">Enviar Avaliação</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        color: #333;
+    }
+    .container p {
+        text-align: center;
+        font-size: 1.1em;
+        color: #666;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        font-weight: bold;
+        color: #555;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .btn-warning {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        color: #333;
+        background-color: #ffc107;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+</style>
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
 {% endblock %}

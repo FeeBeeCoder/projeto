@@ -2,7 +2,11 @@ LISTA DE PENDÊNCIAS (26/11)
 
 - Header/Logo 
 - Verificar bd (adicionar causa animal e pesquisar qual outra poderia ser considerada)
+<<<<<<< HEAD
 - Verificar se formulários de cadastro de Ongs/voluntário contemplam todas colunas do banco 
+=======
+- Verificar se formulários de cadastro voluntário contemplam todas colunas do banco 
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
 - Verificar se html.ongs atualiza automaticamente ao uma ong se cadastrar (e incluir contato nas Ongs)
 - Adicionar avaliações nas ongs
 - Tela Perfil
@@ -20,6 +24,7 @@ EXTRA (Não obrigatório)
 *notificação de ong próxima - benfeitoria  
 *Doador - registrar info de para quem doou 
 * Video - sobre 
+<<<<<<< HEAD
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -1346,3 +1351,6 @@ background-color: #fff;
 
 } 
 </style>
+=======
+* Requisitos? 
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa

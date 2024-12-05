@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+<<<<<<< HEAD
 {% block title %}Avaliações de {{ ong[0] }}{% endblock %}
 
 {% block content %}
@@ -102,3 +103,97 @@ li p {
 
 {% endblock %}
 
+=======
+{% block title %}Avaliações de {{ ong['nome'] }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Avaliações de {{ ong['nome'] }}</h2>
+    <p class="text-center">Veja o que outros voluntários disseram sobre esta ONG.</p>
+
+    <div class="reviews">
+        {% if avaliacoes %}
+            <div class="row">
+                {% for avaliacao in avaliacoes %}
+                <div class="col">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong>{{ avaliacao['nome_voluntario'] }}</strong>
+                            <span class="rating">{{ avaliacao['nota'] }}/5 estrelas</span>
+                        </div>
+                        <p class="review-date">{{ avaliacao['data_avaliacao'] }}</p>
+                        <p class="review-comment">"{{ avaliacao['comentario'] }}"</p>
+                    </div>
+                </div>
+                {% if loop.index % 2 == 0 %}
+                </div><div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-reviews">Ainda não há avaliações para esta ONG. Seja o primeiro a avaliar!</p>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .text-center {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .reviews .row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    .reviews .col {
+        flex: 1;
+        min-width: calc(50% - 15px);
+    }
+    .review-item {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .review-header {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .rating {
+        font-size: 0.95em;
+        color: #ffbf00;
+        margin-left: 10px;
+    }
+    .review-date {
+        font-size: 0.85em;
+        color: #777;
+        margin-bottom: 15px;
+    }
+    .review-comment {
+        font-size: 1em;
+        color: #444;
+        line-height: 1.6;
+    }
+    .no-reviews {
+        text-align: center;
+        font-size: 1em;
+        color: #777;
+        margin-top: 20px;
+    }
+</style>
+{% endblock %}
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa

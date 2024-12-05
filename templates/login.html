@@ -7,7 +7,11 @@
 <section id="login">
     <div class="login-container">
         <h2>Acesse sua Conta</h2>
+<<<<<<< HEAD
         <p>Bem-vindo! Faça login para continuar contribuindo para um mundo melhor.</p>
+=======
+        <p>Bem-vindo de volta! Faça login para continuar contribuindo para um mundo melhor.</p>
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
 
         <form action="{{ url_for('login') }}" method="POST" class="login-form">
             <div class="form-group">
@@ -25,7 +29,14 @@
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
 
+<<<<<<< HEAD
             <input type="submit" value="Entrar">
+=======
+            <div class="form-actions">
+                <input type="submit" value="Entrar" class="btn-login">
+                <p>Esqueceu sua senha? <a href="{{ url_for('recuperar_senha') }}">Clique aqui</a></p>
+            </div>
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
         </form>
 
         <div class="register-prompt">
@@ -126,6 +137,7 @@
     .register-prompt a:hover {
         text-decoration: underline;
     }
+<<<<<<< HEAD
     input[type="submit"] { 
 
     background-color: #1609a6; 
@@ -149,5 +161,7 @@
 
     } 
 
+=======
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
 </style>
 {% endblock %}

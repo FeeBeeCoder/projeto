@@ -4,7 +4,11 @@
 
 {% block content %}
 <section id="ongs">
+<<<<<<< HEAD
     <h2>Lista de ONGs</h2>
+=======
+    <h2>ONGs Cadastradas</h2>
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
     <p>Descubra ONGs cadastradas e suas causas.</p>
 
     <!-- Formulário de Filtro -->
@@ -13,8 +17,13 @@
         <select id="causa" name="causa">
             <option value="">Todas</option>
             {% for causa in causas %}
+<<<<<<< HEAD
             <option value="{{ causa[0] }}" {% if request.args.get('causa') == causa[0] %}selected{% endif %}>
                 {{ causa[0] }}
+=======
+            <option value="{{ causa['causa'] }}" {% if request.args.get('causa') == causa['causa'] %}selected{% endif %}>
+                {{ causa['causa'] }}
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
             </option>
             {% endfor %}
         </select>
@@ -22,6 +31,7 @@
         <label for="estado">Filtrar por Estado:</label>
         <select id="estado" name="estado">
             <option value="">Todos</option>
+<<<<<<< HEAD
             <option value="AC">Acre (AC)</option>
             <option value="AL">Alagoas (AL)</option>
             <option value="AP">Amapá (AP)</option>
@@ -49,14 +59,26 @@
             <option value="SP">São Paulo (SP)</option>
             <option value="SE">Sergipe (SE)</option>
             <option value="TO">Tocantins (TO)</option>
+=======
+            {% for estado in estados %}
+            <option value="{{ estado }}" {% if request.args.get('estado') == estado %}selected{% endif %}>
+                {{ estado }}
+            </option>
+            {% endfor %}
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
         </select>
 
         <label for="necessidade">Filtrar por Necessidade:</label>
         <select id="necessidade" name="necessidade">
             <option value="">Todas</option>
             {% for necessidade in necessidades %}
+<<<<<<< HEAD
             <option value="{{ necessidade[0] }}" {% if request.args.get('necessidade') == necessidade[0] %}selected{% endif %}>
                 {{ necessidade[0] }}
+=======
+            <option value="{{ necessidade['tipo'] }}" {% if request.args.get('necessidade') == necessidade['tipo'] %}selected{% endif %}>
+                {{ necessidade['tipo'] }}
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
             </option>
             {% endfor %}
         </select>
@@ -69,6 +91,7 @@
         {% for ong in ongs %}
         <div class="ong-card">
             <figure>
+<<<<<<< HEAD
                 <img src="{{ url_for('static', filename=ong[5] or '') }}" alt="Logo da ONG {{ ong[1] }}" class="ong-logo">
             </figure>
             <h3>{{ ong[1] }}</h3>
@@ -84,13 +107,34 @@
             <!-- Botão de Compartilhamento -->
             <button onclick="compartilhar('{{ ong[1] }}', '{{ ong[2] }}', '{{ ong[6] }}')">Compartilhar Necessidade</button>
         </div>
+=======
+                <img src="{{ url_for('static', filename=ong['logo']) }}" alt="Logo da ONG {{ ong['nome'] }}" class="ong-logo">
+            </figure>
+            <h3>{{ ong['nome'] }}</h3>
+            <p><strong>Causa:</strong> {{ ong['causa'] }}</p>
+            <p><strong>Necessidade:</strong> {{ ong['tipo'] }}</p>
+            <p><strong>Localização:</strong> {{ ong['cidade'] }}, {{ ong['estado'] }}</p>
+            <p><strong>Telefone:</strong> {{ ong['telefone'] }}</p> 
+            <p><strong>Celular:</strong> {{ ong['celular'] }}</p>
+
+            <a href="{{ url_for('avaliar_ong', id_ong=ong['id_ONG']) }}">Avaliar ONG</a> |
+            <a href="{{ url_for('avaliacoes', id_ong=ong['id_ONG']) }}">Ver Avaliações</a>
+        </div>
+        {% else %}
+        <p>Nenhuma ONG encontrada com os filtros aplicados.</p>
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
         {% endfor %}
     </div>
 </section>
 
+<<<<<<< HEAD
 
 <style>
     .filter-form {
+=======
+<style>
+     .filter-form {
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
         margin-bottom: 1.5rem;
     }
 
@@ -155,6 +199,9 @@
 
     .ong-card button:hover {
         background-color: #004b4e;
+<<<<<<< HEAD
     }
+=======
+>>>>>>> 13159767297750ff1cd7c0271a61cf417e1e21fa
 </style>
 {% endblock %}
